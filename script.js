@@ -1,42 +1,62 @@
-const button = document.querySelector("button");
+const form = document.getElementById("wrappedForm");
+const output = document.getElementById("output");
 
-button.addEventListener("click", async () => {
-  const company = document.querySelector("input").value;
-  const textareas = document.querySelectorAll("textarea");
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
 
-  const accomplishments = textareas[0].value;
-  const numbers = textareas[1].value;
+  const company = document.getElementById("company").value;
+  const summary = document.getElementById("summary").value;
+  const accomplishments = document
+    .getElementById("accomplishments")
+    .value.split("\n")
+    .filter(Boolean)
+    .map(item => `• ${item}`)
+    .join("\n");
 
-  if (!company || !accomplishments) {
-    alert("Please fill in company and accomplishments");
-    return;
-  }
+  const numbers = document
+    .getElementById("numbers")
+    .value.split("\n")
+    .filter(Boolean)
+    .map(item => `• ${item}`)
+    .join("\n");
 
-  button.textContent = "Generating...";
+  const prompt = `
+Create a high-resolution, two-panel professional “Year Wrapped” graphic in the exact visual style of Spotify Wrapped.
 
-  try {
-    const response = await fetch("/.netlify/functions/generate", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        company,
-        accomplishments,
-        numbers
-      })
-    });
+STYLE & THEME:
+• Dark gradient background with deep black, magenta, hot pink, and neon red tones
+• Futuristic abstract shapes and layered motion graphics
+• Bold typography with strong contrast
+• Rounded panel edges
+• Clean, modern, editorial layout
+• High visual hierarchy and legible text
 
-    const data = await response.json();
+LAYOUT:
+Two panels side by side.
 
-    let output = document.querySelector("pre");
-    if (!output) {
-      output = document.createElement("pre");
-      document.querySelector(".wrap-container").appendChild(output);
-    }
+LEFT PANEL:
+Title: “MY PROFESSIONAL YEAR WRAPPED”
+Subtitle: “Recapping 2025 at ${company}”
 
-    output.textContent = data.result;
-  } catch (err) {
-    alert("Error generating summary");
-  }
+Intro Summary:
+${summary}
 
-  button.textContent = "Generate";
+Accomplishments:
+${accomplishments}
+
+RIGHT PANEL:
+Title: “BY THE NUMBERS”
+
+Numbers:
+${numbers}
+
+OUTPUT REQUIREMENTS:
+• Polished, executive-ready, social-shareable
+• Fully legible at mobile size
+• No overlapping text
+• Maintain the same color palette and visual tone
+`;
+
+  output.textContent = prompt.trim();
+  output.hidden = false;
 });
