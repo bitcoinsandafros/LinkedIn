@@ -49,8 +49,6 @@ p {
 
 .wrapped-image img {
   width: 100%;
-  max-width: 600px; /* ensures image doesn't exceed container */
-  height: auto;      /* keeps aspect ratio */
   border-radius: 20px;
   margin-bottom: 36px;
   box-shadow: 0 20px 60px rgba(255, 47, 109, 0.25);
