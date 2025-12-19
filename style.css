@@ -94,3 +94,20 @@ button:hover {
   height: 16px;
   margin: 0;
 }
+
+/* Output section */
+#outputWrap {
+  margin-top: 20px;
+  background: #f3f3f3;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+pre#output {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  background: #fff;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
