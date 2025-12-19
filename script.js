@@ -1,8 +1,6 @@
 const button = document.querySelector("button");
 
 button.addEventListener("click", async () => {
-  console.log("Generate button clicked");
-
   const company = document.querySelector("input").value;
   const textareas = document.querySelectorAll("textarea");
   const accomplishments = textareas[0].value;
@@ -10,41 +8,49 @@ button.addEventListener("click", async () => {
 
   if (!company || !accomplishments) {
     alert("Please fill in company and accomplishments");
-    console.log("Validation failed: missing company or accomplishments");
     return;
   }
 
   button.textContent = "Generating...";
 
   try {
+    // Call Netlify Function for GPT text
     const response = await fetch("/.netlify/functions/generate", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        company,
-        accomplishments,
-        numbers
-      })
+      body: JSON.stringify({ company, accomplishments, numbers })
     });
 
-    if (!response.ok) {
-      throw new Error(`Network error: ${response.status}`);
-    }
-
     const data = await response.json();
-    console.log("Response received from function:", data);
+    const summary = data.result;
 
-    let output = document.querySelector("pre");
-    if (!output) {
-      output = document.createElement("pre");
-      document.querySelector(".wrap-container").appendChild(output);
+    // Display summary in hidden pre (for html2canvas)
+    const pre = document.getElementById("output");
+    pre.style.display = "block";
+    pre.textContent = summary;
+
+    // Render wrap-container to image
+    const wrapCard = document.getElementById("wrap-card");
+    const canvas = await html2canvas(wrapCard, { backgroundColor: null });
+    const imgData = canvas.toDataURL("image/png");
+
+    // Create or update an <img> for the generated image
+    let outputImg = document.getElementById("output-image");
+    if (!outputImg) {
+      outputImg = document.createElement("img");
+      outputImg.id = "output-image";
+      outputImg.style.maxWidth = "100%";
+      wrapCard.appendChild(outputImg);
     }
+    outputImg.src = imgData;
 
-    output.textContent = data.result || "No result returned";
+    // Hide pre again
+    pre.style.display = "none";
+
     button.textContent = "Generate";
-  } catch (error) {
-    console.error("Error calling Netlify function:", error);
-    alert("Something went wrong. Check the console for details.");
+  } catch (err) {
+    console.error(err);
+    alert("Error generating Wrapped image. Check console.");
     button.textContent = "Generate";
   }
 });
