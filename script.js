@@ -1,62 +1,81 @@
 const form = document.getElementById("wrappedForm");
 const output = document.getElementById("output");
+const outputWrap = document.getElementById("outputWrap");
+const copyBtn = document.getElementById("copyBtn");
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
 
-  const company = document.getElementById("company").value;
-  const summary = document.getElementById("summary").value;
-  const accomplishments = document
-    .getElementById("accomplishments")
-    .value.split("\n")
-    .filter(Boolean)
-    .map(item => `• ${item}`)
-    .join("\n");
+  const company = companyInput();
+  const summary = summaryInput();
+  const accomplishments = listify("accomplishments");
+  const numbers = listify("numbers");
+  const variation = document.getElementById("variation").checked;
 
-  const numbers = document
-    .getElementById("numbers")
-    .value.split("\n")
-    .filter(Boolean)
-    .map(item => `• ${item}`)
-    .join("\n");
+  const variationText = variation
+    ? "Create a slightly different layout variation while keeping the same color palette and overall style."
+    : "";
 
   const prompt = `
 Create a high-resolution, two-panel professional “Year Wrapped” graphic in the exact visual style of Spotify Wrapped.
 
-STYLE & THEME:
-• Dark gradient background with deep black, magenta, hot pink, and neon red tones
-• Futuristic abstract shapes and layered motion graphics
-• Bold typography with strong contrast
-• Rounded panel edges
-• Clean, modern, editorial layout
-• High visual hierarchy and legible text
+STYLE:
+Dark gradients, neon magenta and pink tones, abstract motion shapes, bold typography, rounded panels.
 
 LAYOUT:
 Two panels side by side.
 
 LEFT PANEL:
-Title: “MY PROFESSIONAL YEAR WRAPPED”
-Subtitle: “Recapping 2025 at ${company}”
+Title: MY PROFESSIONAL YEAR WRAPPED
+Subtitle: Recapping 2025 at ${company}
 
-Intro Summary:
+Summary:
 ${summary}
 
 Accomplishments:
 ${accomplishments}
 
 RIGHT PANEL:
-Title: “BY THE NUMBERS”
-
-Numbers:
+Title: BY THE NUMBERS
 ${numbers}
 
-OUTPUT REQUIREMENTS:
-• Polished, executive-ready, social-shareable
-• Fully legible at mobile size
-• No overlapping text
-• Maintain the same color palette and visual tone
+${variationText}
+
+Ensure text is fully legible and polished.
 `;
 
   output.textContent = prompt.trim();
-  output.hidden = false;
+  outputWrap.hidden = false;
+
+  selectText();
 });
+
+copyBtn.addEventListener("click", () => {
+  navigator.clipboard.writeText(output.textContent);
+  copyBtn.textContent = "Copied!";
+  setTimeout(() => (copyBtn.textContent = "Copy Prompt"), 1500);
+});
+
+function listify(id) {
+  return document.getElementById(id).value
+    .split("\n")
+    .filter(Boolean)
+    .map(item => `• ${item}`)
+    .join("\n");
+}
+
+function companyInput() {
+  return document.getElementById("company").value;
+}
+
+function summaryInput() {
+  return document.getElementById("summary").value;
+}
+
+function selectText() {
+  const range = document.createRange();
+  range.selectNodeContents(output);
+  const sel = window.getSelection();
+  sel.removeAllRanges();
+  sel.addRange(range);
+}
