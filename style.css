@@ -5,7 +5,7 @@
 body {
   margin: 0;
   padding: 40px 20px;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: system-ui, sans-serif;
   background: radial-gradient(circle at top, #2b0f2f 0%, #140015 40%, #09000c 100%);
   color: #ffffff;
 }
@@ -23,54 +23,39 @@ h1 {
   -webkit-text-fill-color: transparent;
 }
 
-p {
-  opacity: 0.85;
-  margin-bottom: 24px;
-}
-
 .instructions {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 79, 216, 0.25);
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,79,216,0.25);
   border-radius: 16px;
   padding: 20px;
   margin-bottom: 32px;
-  font-size: 0.95rem;
-  line-height: 1.5;
 }
 
 label {
   display: block;
   margin-bottom: 6px;
   font-size: 0.9rem;
-  opacity: 0.85;
 }
 
-input,
-textarea {
+input, textarea {
   width: 100%;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 79, 216, 0.25);
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,79,216,0.25);
   border-radius: 12px;
-  padding: 14px 16px;
+  padding: 14px;
   margin-bottom: 20px;
-  color: #ffffff;
-  font-size: 0.95rem;
+  color: #fff;
 }
 
 textarea {
-  min-height: 120px;
+  min-height: 110px;
 }
 
-input::placeholder,
-textarea::placeholder {
-  color: rgba(255, 255, 255, 0.45);
-}
-
-input:focus,
-textarea:focus {
-  outline: none;
-  border-color: #ff4fd8;
-  box-shadow: 0 0 0 2px rgba(255, 79, 216, 0.25);
+.toggle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 24px;
 }
 
 button {
@@ -78,19 +63,22 @@ button {
   border: none;
   border-radius: 999px;
   padding: 14px 28px;
-  color: #09000c;
   font-weight: 600;
-  font-size: 0.95rem;
   cursor: pointer;
 }
 
-pre {
+#outputWrap {
   margin-top: 40px;
+}
+
+#copyBtn {
+  margin-bottom: 12px;
+}
+
+pre {
   padding: 24px;
-  background: rgba(0, 0, 0, 0.45);
+  background: rgba(0,0,0,0.45);
   border-radius: 18px;
   white-space: pre-wrap;
-  font-size: 0.9rem;
-  line-height: 1.5;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255,255,255,0.08);
 }
