@@ -1,23 +1,20 @@
 /* Body & Page Setup */
 body {
-  font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background: transparent; /* page is fully transparent */
-  color: #111;
+  background: url('Assets/professional-year-wrapped-template.PNG') no-repeat center center;
+  background-size: cover;
+  font-family: sans-serif;
 }
 
-/* Main Container */
 .professional-wrapped {
-  max-width: 600px;
-  margin: 40px auto;
-  padding: 20px;
+  background: rgba(255, 255, 255, 0.15); /* glass effect */
+  backdrop-filter: blur(10px);
+  padding: 2rem;
   border-radius: 12px;
-  background: url('1d030661-c93f-4a37-b143-d3ee54407251.png') no-repeat center/cover; /* your colorful background */
-  background-size: cover;
-  text-align: center;
-  position: relative;
-  color: #fff;
+  max-width: 600px;
+  margin: 2rem auto; /* centers the form */
+  color: #000; /* ensures text is readable */
 }
 
 /* Header */
@@ -39,6 +36,10 @@ body {
   height: auto;
   border-radius: 12px;
   display: block;
+}
+
+.wrapped-image {
+  margin-bottom: 2rem; /* gives separation from the form */
 }
 
 /* Form Styling - Fully Below Image */
