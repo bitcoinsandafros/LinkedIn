@@ -2,6 +2,10 @@ const form = document.getElementById("wrappedForm");
 const output = document.getElementById("output");
 const outputWrap = document.getElementById("outputWrap");
 const copyBtn = document.getElementById("copyBtn");
+const openChatGPT = document.getElementById("openChatGPT");
+
+// Hide Open ChatGPT button initially
+openChatGPT.style.display = "none";
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -47,12 +51,19 @@ Ensure text is fully legible and polished.
   output.textContent = prompt.trim();
   outputWrap.hidden = false;
   selectText();
+
+  // Hide Open ChatGPT button again in case of regeneration
+  openChatGPT.style.display = "none";
 });
 
 copyBtn.addEventListener("click", () => {
-  navigator.clipboard.writeText(output.textContent);
-  copyBtn.textContent = "Copied!";
-  setTimeout(() => (copyBtn.textContent = "Copy Prompt"), 1500);
+  navigator.clipboard.writeText(output.textContent).then(() => {
+    copyBtn.textContent = "Copied!";
+    openChatGPT.style.display = "inline-block"; // Show button after copy
+    setTimeout(() => (copyBtn.textContent = "Copy Prompt"), 1500);
+  }).catch((err) => {
+    alert("Failed to copy: " + err);
+  });
 });
 
 function listify(id) {
