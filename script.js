@@ -6,8 +6,8 @@ const copyBtn = document.getElementById("copyBtn");
 form.addEventListener("submit", (e) => {
   e.preventDefault();
 
-  const company = companyInput();
-  const summary = summaryInput();
+  const company = document.getElementById("company").value;
+  const summary = document.getElementById("summary").value;
   const accomplishments = listify("accomplishments");
   const numbers = listify("numbers");
   const variation = document.getElementById("variation").checked;
@@ -46,7 +46,6 @@ Ensure text is fully legible and polished.
 
   output.textContent = prompt.trim();
   outputWrap.hidden = false;
-
   selectText();
 });
 
@@ -62,14 +61,6 @@ function listify(id) {
     .filter(Boolean)
     .map(item => `• ${item}`)
     .join("\n");
-}
-
-function companyInput() {
-  return document.getElementById("company").value;
-}
-
-function summaryInput() {
-  return document.getElementById("summary").value;
 }
 
 function selectText() {
