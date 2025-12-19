@@ -18,12 +18,10 @@
     </div>
 
     <p>This visual was generated using ChatGPT.</p>
-    <p>To recreate this exact style, copy the prompt below and paste it into ChatGPT.
-    Then replace the company name, accomplishments, and numbers with your own.</p>
-    <p>No design skills needed. Just paste, edit, and generate.</p>
+    <p>To recreate this exact style, fill the form below and generate your prompt.</p>
 
     <!-- Form Section -->
-    <form id="year-wrapped-form">
+    <form id="wrappedForm">
       <label for="email">Email (required)</label>
       <input type="email" id="email" name="email" required>
 
@@ -41,15 +39,23 @@
 
       <!-- Regenerate Toggle -->
       <div class="regenerate-toggle">
-        <label for="regenerate">
-          <input type="checkbox" id="regenerate" name="regenerate">
+        <label for="variation">
+          <input type="checkbox" id="variation" name="variation">
           Regenerate a slightly different layout variation
         </label>
       </div>
 
-      <button type="submit">Generate Wrapped Visual</button>
+      <button type="submit">Generate Wrapped Visual Prompt</button>
     </form>
+
+    <!-- Output Section -->
+    <div id="outputWrap" hidden>
+      <h2>Your ChatGPT Prompt</h2>
+      <pre id="output"></pre>
+      <button id="copyBtn">Copy Prompt</button>
+    </div>
   </section>
 
+  <script src="script.js"></script>
 </body>
 </html>
