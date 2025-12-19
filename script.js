@@ -14,7 +14,7 @@ button.addEventListener("click", async () => {
   button.textContent = "Generating...";
 
   try {
-    // Call Netlify Function for GPT text
+    // 1️⃣ Call Netlify Function for GPT text
     const response = await fetch("/.netlify/functions/generate", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -24,28 +24,34 @@ button.addEventListener("click", async () => {
     const data = await response.json();
     const summary = data.result;
 
-    // Display summary in hidden pre (for html2canvas)
-    const pre = document.getElementById("output");
-    pre.style.display = "block";
-    pre.textContent = summary;
+    // 2️⃣ Insert text into overlay
+    const summaryText = document.getElementById("summary-text");
+    summaryText.textContent = summary;
 
-    // Render wrap-container to image
+    // Optional: dynamically reduce font if text is too long
+    let fontSize = 18;
+    summaryText.style.fontSize = fontSize + "px";
+
+    while (summaryText.scrollHeight > summaryText.clientHeight && fontSize > 10) {
+      fontSize -= 1;
+      summaryText.style.fontSize = fontSize + "px";
+    }
+
+    // 3️⃣ Render wrap-container to image
     const wrapCard = document.getElementById("wrap-card");
     const canvas = await html2canvas(wrapCard, { backgroundColor: null });
     const imgData = canvas.toDataURL("image/png");
 
-    // Create or update an <img> for the generated image
+    // 4️⃣ Create or update the generated image element
     let outputImg = document.getElementById("output-image");
     if (!outputImg) {
       outputImg = document.createElement("img");
       outputImg.id = "output-image";
       outputImg.style.maxWidth = "100%";
+      outputImg.style.marginTop = "20px";
       wrapCard.appendChild(outputImg);
     }
     outputImg.src = imgData;
-
-    // Hide pre again
-    pre.style.display = "none";
 
     button.textContent = "Generate";
   } catch (err) {
