@@ -1,84 +1,99 @@
+/* Body & Page Setup */
 body {
   font-family: Arial, sans-serif;
-  margin: 20px;
-  background: #f9f9f9;
+  margin: 0;
+  padding: 0;
   color: #111;
+  background: #000; /* optional neutral background behind template */
 }
 
+/* Main Container */
 .professional-wrapped {
   max-width: 600px;
   margin: 0 auto;
-  background: #fff;
   padding: 20px;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-
-h1 {
+  /* Remove white background so your template image shows */
+  background: transparent;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2); /* subtle shadow for depth */
   text-align: center;
-  margin-bottom: 10px;
+  position: relative;
 }
 
-p {
-  margin-bottom: 10px;
-}
-
+/* Image Section */
 .wrapped-image {
-  text-align: center;
   margin: 20px 0;
+  position: relative;
+  z-index: 1;
 }
 
 .wrapped-image img {
-  max-width: 100%;
+  width: 100%;
   height: auto;
   border-radius: 12px;
+  display: block;
+  z-index: 0;
 }
 
+/* Form Styling */
 form {
   display: flex;
   flex-direction: column;
+  position: relative;
+  z-index: 2; /* keep form above the template image */
+  margin-top: -180px; /* pull form on top of template if needed */
 }
 
+/* Form Labels */
 label {
   margin-top: 10px;
   margin-bottom: 5px;
   font-weight: bold;
+  color: #fff; /* text visible on colorful background */
+  text-align: left;
 }
 
+/* Form Inputs & Textareas */
 input[type="text"],
 input[type="email"],
 textarea {
-  padding: 10px;
+  background: rgba(255, 255, 255, 0.85); /* semi-transparent for readability */
   border: 1px solid #ccc;
   border-radius: 8px;
+  padding: 10px;
   font-size: 14px;
   width: 100%;
   box-sizing: border-box;
+  color: #111;
 }
 
+/* Textarea resizing */
 textarea {
   min-height: 60px;
   resize: vertical;
 }
 
+/* Buttons */
 button {
   margin-top: 15px;
   padding: 12px;
-  background-color: #4caf50;
+  background-color: #e91e63; /* matches Spotify Wrapped magenta/pink vibe */
   color: white;
   border: none;
   border-radius: 8px;
   font-size: 16px;
   cursor: pointer;
+  transition: background 0.2s;
 }
 
 button:hover {
-  background-color: #45a049;
+  background-color: #d81b60;
 }
 
 /* Regenerate Toggle Styles */
 .regenerate-toggle {
   margin-top: 15px;
+  text-align: left;
 }
 
 .regenerate-toggle label {
@@ -87,6 +102,7 @@ button:hover {
   gap: 8px;
   font-size: 14px;
   cursor: pointer;
+  color: #fff; /* visible on template */
 }
 
 .regenerate-toggle input[type="checkbox"] {
@@ -95,19 +111,33 @@ button:hover {
   margin: 0;
 }
 
-/* Output section */
+/* Output Section */
 #outputWrap {
   margin-top: 20px;
-  background: #f3f3f3;
+  background: rgba(0, 0, 0, 0.7); /* dark overlay to stand out */
   padding: 15px;
   border-radius: 8px;
+  color: #fff;
 }
 
 pre#output {
   white-space: pre-wrap;
   word-wrap: break-word;
-  background: #fff;
+  background: rgba(255, 255, 255, 0.9);
   padding: 10px;
   border-radius: 6px;
   border: 1px solid #ccc;
+  color: #111;
+  overflow-x: auto;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 650px) {
+  .professional-wrapped {
+    padding: 15px;
+  }
+
+  form {
+    margin-top: -120px; /* adjust for smaller screens */
+  }
 }
