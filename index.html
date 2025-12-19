@@ -14,11 +14,27 @@
     <h1>Professional Year Wrapped</h1>
     <p>Create a Wrapped style summary of your professional year.</p>
 
-    <img
-      src="assets/professional-year-wrapped-template.png"
-      alt="Professional Year Wrapped Example"
-      class="preview"
-    />
+    <div class="image-wrapper" style="position: relative;">
+      <img
+        src="assets/professional-year-wrapped-template.png"
+        alt="Template"
+        class="preview"
+      />
+      <!-- Text overlay container -->
+      <div id="summary-text" style="
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        right: 20px;
+        bottom: 20px;
+        color: #fff;
+        font-family: system-ui, sans-serif;
+        font-size: 18px;
+        line-height: 1.3;
+        overflow-wrap: break-word;
+        white-space: pre-wrap;
+      "></div>
+    </div>
 
     <h2>Your Info</h2>
 
@@ -32,8 +48,6 @@
     <br><br>
 
     <button type="button">Generate</button>
-
-    <pre id="output" style="display:none;"></pre>
   </div>
 
 </body>
