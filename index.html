@@ -1,34 +1,152 @@
-<section class="professional-wrapped">
-  <h1>Professional Year Wrapped</h1>
-  <p>Create a Wrapped-style summary of your professional year.</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Professional Year Wrapped</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background: #f9f9f9;
+      color: #111;
+    }
 
-  <!-- Image Section -->
-  <div class="wrapped-image">
-    <img src="assets/your-image.png" alt="Your Professional Year Visual" />
-  </div>
+    .professional-wrapped {
+      max-width: 600px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
 
-  <p>This visual was generated using ChatGPT.</p>
-  <p>To recreate this exact style, copy the prompt below and paste it into ChatGPT.
-  Then replace the company name, accomplishments, and numbers with your own.</p>
-  <p>No design skills needed. Just paste, edit, and generate.</p>
+    h1 {
+      text-align: center;
+      margin-bottom: 10px;
+    }
 
-  <!-- Form Section -->
-  <form id="year-wrapped-form">
-    <label for="email">Email (required)</label>
-    <input type="email" id="email" name="email" required />
+    p {
+      margin-bottom: 10px;
+    }
 
-    <label for="company">Company or Organization</label>
-    <input type="text" id="company" name="company" />
+    .wrapped-image {
+      text-align: center;
+      margin: 20px 0;
+    }
 
-    <label for="summary">Year Summary</label>
-    <textarea id="summary" name="summary"></textarea>
+    .wrapped-image img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+    }
 
-    <label for="accomplishments">Accomplishments (one per line)</label>
-    <textarea id="accomplishments" name="accomplishments"></textarea>
+    form {
+      display: flex;
+      flex-direction: column;
+    }
 
-    <label for="numbers">By the Numbers (one per line)</label>
-    <textarea id="numbers" name="numbers"></textarea>
+    label {
+      margin-top: 10px;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
 
-    <button type="submit">Generate Wrapped Visual</button>
-  </form>
-</section>
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 14px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    textarea {
+      min-height: 60px;
+      resize: vertical;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 12px;
+      background-color: #4caf50;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    /* Regenerate Toggle Styles */
+    .regenerate-toggle {
+      margin-top: 15px;
+    }
+
+    .regenerate-toggle label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .regenerate-toggle input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <section class="professional-wrapped">
+    <h1>Professional Year Wrapped</h1>
+    <p>Create a Wrapped-style summary of your professional year.</p>
+
+    <!-- Image Section -->
+    <div class="wrapped-image">
+      <img src="assets/your-image.png" alt="Your Professional Year Visual">
+    </div>
+
+    <p>This visual was generated using ChatGPT.</p>
+    <p>To recreate this exact style, copy the prompt below and paste it into ChatGPT.
+    Then replace the company name, accomplishments, and numbers with your own.</p>
+    <p>No design skills needed. Just paste, edit, and generate.</p>
+
+    <!-- Form Section -->
+    <form id="year-wrapped-form">
+      <label for="email">Email (required)</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="company">Company or Organization</label>
+      <input type="text" id="company" name="company">
+
+      <label for="summary">Year Summary</label>
+      <textarea id="summary" name="summary"></textarea>
+
+      <label for="accomplishments">Accomplishments (one per line)</label>
+      <textarea id="accomplishments" name="accomplishments"></textarea>
+
+      <label for="numbers">By the Numbers (one per line)</label>
+      <textarea id="numbers" name="numbers"></textarea>
+
+      <!-- Regenerate Toggle -->
+      <div class="regenerate-toggle">
+        <label for="regenerate">
+          <input type="checkbox" id="regenerate" name="regenerate">
+          Regenerate a slightly different layout variation
+        </label>
+      </div>
+
+      <button type="submit">Generate Wrapped Visual</button>
+    </form>
+  </section>
+
+</body>
+</html>
