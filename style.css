@@ -1,34 +1,20 @@
-/* Base reset */
 * {
   box-sizing: border-box;
 }
 
-/* Page background */
 body {
   margin: 0;
   padding: 40px 20px;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  background: radial-gradient(
-    circle at top,
-    #2b0f2f 0%,
-    #140015 40%,
-    #09000c 100%
-  );
+  background: radial-gradient(circle at top, #2b0f2f 0%, #140015 40%, #09000c 100%);
   color: #ffffff;
 }
 
-/* Main wrapped container */
-.wrap-container {
-  max-width: 720px;
+.container {
+  max-width: 900px;
   margin: 0 auto;
-  background: rgba(18, 18, 28, 0.85);
-  backdrop-filter: blur(8px);
-  padding: 36px 32px;
-  border-radius: 28px;
-  box-shadow: 0 30px 80px rgba(255, 47, 109, 0.18);
 }
 
-/* Headings */
 h1 {
   font-size: 2.4rem;
   margin-bottom: 8px;
@@ -37,34 +23,34 @@ h1 {
   -webkit-text-fill-color: transparent;
 }
 
-h2 {
-  margin-top: 36px;
-  margin-bottom: 16px;
-  font-size: 1.2rem;
-}
-
-/* Text */
 p {
   opacity: 0.85;
-  margin-bottom: 28px;
+  margin-bottom: 24px;
+}
+
+.instructions {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 79, 216, 0.25);
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 32px;
+  font-size: 0.95rem;
   line-height: 1.5;
 }
 
-/* Preview image */
-img {
-  width: 100%;
-  border-radius: 20px;
-  margin-bottom: 36px;
-  box-shadow: 0 20px 60px rgba(255, 47, 109, 0.25);
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 0.9rem;
+  opacity: 0.85;
 }
 
-/* Inputs */
 input,
 textarea {
   width: 100%;
-  background: rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 79, 216, 0.25);
-  border-radius: 14px;
+  border-radius: 12px;
   padding: 14px 16px;
   margin-bottom: 20px;
   color: #ffffff;
@@ -72,8 +58,7 @@ textarea {
 }
 
 textarea {
-  min-height: 110px;
-  resize: vertical;
+  min-height: 120px;
 }
 
 input::placeholder,
@@ -88,10 +73,7 @@ textarea:focus {
   box-shadow: 0 0 0 2px rgba(255, 79, 216, 0.25);
 }
 
-/* Button */
 button {
-  width: 100%;
-  margin-top: 12px;
   background: linear-gradient(90deg, #ff4fd8, #ff2f6d);
   border: none;
   border-radius: 999px;
@@ -100,21 +82,15 @@ button {
   font-weight: 600;
   font-size: 0.95rem;
   cursor: pointer;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
-button:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 12px 32px rgba(255, 47, 109, 0.45);
-}
-
-/* Output block (future GPT response) */
 pre {
-  margin-top: 32px;
-  padding: 22px;
+  margin-top: 40px;
+  padding: 24px;
   background: rgba(0, 0, 0, 0.45);
   border-radius: 18px;
   white-space: pre-wrap;
   font-size: 0.9rem;
+  line-height: 1.5;
   border: 1px solid rgba(255, 255, 255, 0.08);
 }
