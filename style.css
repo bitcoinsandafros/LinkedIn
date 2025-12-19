@@ -4,13 +4,13 @@ body {
   margin: 0;
   padding: 0;
   color: #111;
-  background: #000; /* optional neutral background behind template */
+  background: transparent; /* fully transparent background */
 }
 
 /* Main Container */
 .professional-wrapped {
   max-width: 600px;
-  margin: 0 auto;
+  margin: 40px auto; /* space from top */
   padding: 20px;
   border-radius: 12px;
   background: transparent;
@@ -20,7 +20,7 @@ body {
 
 /* Image Section */
 .wrapped-image {
-  margin: 20px 0;
+  margin: 0 0 30px 0; /* 2 lines of space under the image */
   position: relative;
   z-index: 0;
 }
@@ -32,19 +32,19 @@ body {
   display: block;
 }
 
-/* Form Styling - Floating with blur & shadow */
+/* Form Styling - Fully Below Image */
 form {
   display: flex;
   flex-direction: column;
   position: relative;
   z-index: 1;
-  margin-top: -160px; /* floats above image */
+  margin-top: 0; /* no negative margin */
   gap: 10px;
   padding: 20px;
   border-radius: 12px;
-  background: rgba(255, 255, 255, 0.15); /* very subtle white overlay */
-  backdrop-filter: blur(10px); /* soft blur of background */
-  box-shadow: 0 8px 20px rgba(0,0,0,0.25); /* gentle shadow for depth */
+  background: rgba(255, 255, 255, 0.15); /* subtle overlay */
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
 }
 
 /* Form Labels */
@@ -58,7 +58,7 @@ label {
 input[type="text"],
 input[type="email"],
 textarea {
-  background: rgba(255, 255, 255, 0.9); /* readable over blurred background */
+  background: rgba(255, 255, 255, 0.9); /* readable over blur */
   border: 1px solid #ccc;
   border-radius: 8px;
   padding: 10px;
@@ -113,7 +113,7 @@ button:hover {
 /* Output Section */
 #outputWrap {
   margin-top: 20px;
-  background: rgba(255, 255, 255, 0.15); /* subtle floating effect */
+  background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(10px);
   padding: 15px;
   border-radius: 12px;
@@ -140,6 +140,6 @@ pre#output {
   }
 
   form {
-    margin-top: -120px;
+    margin-top: 20px; /* maintain separation on mobile */
   }
 }
