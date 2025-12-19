@@ -14,7 +14,6 @@ body {
   padding: 20px;
   border-radius: 12px;
   background: transparent;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
   text-align: center;
   position: relative;
 }
@@ -23,7 +22,7 @@ body {
 .wrapped-image {
   margin: 20px 0;
   position: relative;
-  z-index: 1;
+  z-index: 0;
 }
 
 .wrapped-image img {
@@ -31,22 +30,25 @@ body {
   height: auto;
   border-radius: 12px;
   display: block;
-  z-index: 0;
 }
 
-/* Form Styling */
+/* Form Styling - Floating with blur & shadow */
 form {
   display: flex;
   flex-direction: column;
   position: relative;
-  z-index: 2;
-  margin-top: -180px;
+  z-index: 1;
+  margin-top: -160px; /* floats above image */
+  gap: 10px;
+  padding: 20px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.15); /* very subtle white overlay */
+  backdrop-filter: blur(10px); /* soft blur of background */
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25); /* gentle shadow for depth */
 }
 
 /* Form Labels */
 label {
-  margin-top: 10px;
-  margin-bottom: 5px;
   font-weight: bold;
   color: #fff;
   text-align: left;
@@ -56,7 +58,7 @@ label {
 input[type="text"],
 input[type="email"],
 textarea {
-  background: rgba(255, 255, 255, 0.2); /* very subtle overlay */
+  background: rgba(255, 255, 255, 0.9); /* readable over blurred background */
   border: 1px solid #ccc;
   border-radius: 8px;
   padding: 10px;
@@ -74,7 +76,6 @@ textarea {
 
 /* Buttons */
 button {
-  margin-top: 15px;
   padding: 12px;
   background-color: #e91e63;
   color: white;
@@ -91,7 +92,6 @@ button:hover {
 
 /* Regenerate Toggle Styles */
 .regenerate-toggle {
-  margin-top: 15px;
   text-align: left;
 }
 
@@ -113,9 +113,11 @@ button:hover {
 /* Output Section */
 #outputWrap {
   margin-top: 20px;
-  background: rgba(0, 0, 0, 0.2); /* very subtle dark overlay */
+  background: rgba(255, 255, 255, 0.15); /* subtle floating effect */
+  backdrop-filter: blur(10px);
   padding: 15px;
-  border-radius: 8px;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.2);
   color: #fff;
 }
 
@@ -123,7 +125,7 @@ button:hover {
 pre#output {
   white-space: pre-wrap;
   word-wrap: break-word;
-  background: rgba(255, 255, 255, 0.2); /* very subtle light overlay */
+  background: rgba(255, 255, 255, 0.9);
   padding: 10px;
   border-radius: 6px;
   border: 1px solid #ccc;
