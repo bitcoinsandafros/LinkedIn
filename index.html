@@ -8,40 +8,50 @@
 </head>
 <body>
 
-  <div class="container">
+<div class="container">
 
-    <h1>Professional Year Wrapped</h1>
-    <p>Create a Wrapped style summary of your professional year.</p>
+  <h1>Professional Year Wrapped</h1>
+  <p>Create a Wrapped-style summary of your professional year.</p>
 
-    <div class="instructions">
-      <strong>This visual was generated using ChatGPT.</strong><br><br>
-      To recreate this exact style, copy the generated prompt below and paste it into ChatGPT.<br>
-      Then replace the company name, accomplishments, and numbers with your own.<br><br>
-      <em>No design skills needed. Just paste, edit, and generate.</em>
-    </div>
-
-    <form id="wrappedForm">
-
-      <label>Company or Organization</label>
-      <input id="company" placeholder="Example: Comcast" required />
-
-      <label>Year Summary</label>
-      <textarea id="summary" placeholder="Short paragraph about your year"></textarea>
-
-      <label>Accomplishments (one per line)</label>
-      <textarea id="accomplishments" placeholder="Expanded to 13 states&#10;Unified cross-functional teams"></textarea>
-
-      <label>By the Numbers (one per line)</label>
-      <textarea id="numbers" placeholder="456 emails replied&#10;124 meetings led"></textarea>
-
-      <button type="submit">Generate Prompt</button>
-
-    </form>
-
-    <pre id="output" hidden></pre>
-
+  <div class="instructions">
+    <strong>This visual was generated using ChatGPT.</strong><br><br>
+    To recreate this exact style, copy the prompt below and paste it into ChatGPT.<br>
+    Then replace the company name, accomplishments, and numbers with your own.<br><br>
+    <em>No design skills needed. Just paste, edit, and generate.</em>
   </div>
 
-  <script src="script.js"></script>
+  <form id="wrappedForm">
+
+    <label>Email (required)</label>
+    <input id="email" type="email" placeholder="you@email.com" required />
+
+    <label>Company or Organization</label>
+    <input id="company" placeholder="Example: Comcast" required />
+
+    <label>Year Summary</label>
+    <textarea id="summary" placeholder="Short paragraph about your year"></textarea>
+
+    <label>Accomplishments (one per line)</label>
+    <textarea id="accomplishments"></textarea>
+
+    <label>By the Numbers (one per line)</label>
+    <textarea id="numbers"></textarea>
+
+    <label class="toggle">
+      <input type="checkbox" id="variation" />
+      Regenerate a slightly different layout variation
+    </label>
+
+    <button type="submit">Generate Prompt</button>
+  </form>
+
+  <div id="outputWrap" hidden>
+    <button id="copyBtn">Copy Prompt</button>
+    <pre id="output"></pre>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
