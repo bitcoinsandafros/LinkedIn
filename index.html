@@ -5,51 +5,38 @@
   <title>Professional Year Wrapped</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="style.css">
-  <!-- Include html2canvas library -->
-  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
 </head>
 <body>
 
-  <div class="wrap-container" id="wrap-card">
+  <div class="wrap-container">
     <h1>Professional Year Wrapped</h1>
     <p>Create a Wrapped style summary of your professional year.</p>
 
-    <div class="image-wrapper" style="position: relative;">
-      <img
-        src="assets/professional-year-wrapped-template.png"
-        alt="Template"
-        class="preview"
-      />
-      <!-- Text overlay container -->
-      <div id="summary-text" style="
-        position: absolute;
-        top: 20px;
-        left: 20px;
-        right: 20px;
-        bottom: 20px;
-        color: #fff;
-        font-family: system-ui, sans-serif;
-        font-size: 18px;
-        line-height: 1.3;
-        overflow-wrap: break-word;
-        white-space: pre-wrap;
-      "></div>
-    </div>
-
     <h2>Your Info</h2>
 
-    <input type="text" placeholder="Company or Organization" />
+    <input
+      type="text"
+      placeholder="Company or Organization"
+    />
+
     <br><br>
 
-    <textarea placeholder="List accomplishments (one per line)"></textarea>
+    <textarea
+      placeholder="List accomplishments (one per line)"
+    ></textarea>
+
     <br><br>
 
-    <textarea placeholder="List numbers (example: 456 emails replied)"></textarea>
+    <textarea
+      placeholder="List numbers (example: 456 emails replied)"
+    ></textarea>
+
     <br><br>
 
     <button type="button">Generate</button>
+
   </div>
 
+  <script src="script.js"></script>
 </body>
-<script src="script.js"></script>
 </html>
