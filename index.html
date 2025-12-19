@@ -4,36 +4,41 @@
   <meta charset="UTF-8" />
   <title>Professional Year Wrapped</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <div class="wrap-container">
+  <div class="container">
+
     <h1>Professional Year Wrapped</h1>
     <p>Create a Wrapped style summary of your professional year.</p>
 
-    <h2>Your Info</h2>
+    <div class="instructions">
+      <strong>This visual was generated using ChatGPT.</strong><br><br>
+      To recreate this exact style, copy the generated prompt below and paste it into ChatGPT.<br>
+      Then replace the company name, accomplishments, and numbers with your own.<br><br>
+      <em>No design skills needed. Just paste, edit, and generate.</em>
+    </div>
 
-    <input
-      type="text"
-      placeholder="Company or Organization"
-    />
+    <form id="wrappedForm">
 
-    <br><br>
+      <label>Company or Organization</label>
+      <input id="company" placeholder="Example: Comcast" required />
 
-    <textarea
-      placeholder="List accomplishments (one per line)"
-    ></textarea>
+      <label>Year Summary</label>
+      <textarea id="summary" placeholder="Short paragraph about your year"></textarea>
 
-    <br><br>
+      <label>Accomplishments (one per line)</label>
+      <textarea id="accomplishments" placeholder="Expanded to 13 states&#10;Unified cross-functional teams"></textarea>
 
-    <textarea
-      placeholder="List numbers (example: 456 emails replied)"
-    ></textarea>
+      <label>By the Numbers (one per line)</label>
+      <textarea id="numbers" placeholder="456 emails replied&#10;124 meetings led"></textarea>
 
-    <br><br>
+      <button type="submit">Generate Prompt</button>
 
-    <button type="button">Generate</button>
+    </form>
+
+    <pre id="output" hidden></pre>
 
   </div>
 
