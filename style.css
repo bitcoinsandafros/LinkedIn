@@ -1,58 +1,70 @@
+/* Base reset */
+* {
+  box-sizing: border-box;
+}
+
 /* Body & Page Setup */
 body {
   margin: 0;
-  padding: 0;
-  background: url('Assets/professional-year-wrapped-template.PNG') no-repeat center center;
-  background-size: cover;
-  font-family: sans-serif;
-}
-
-.professional-wrapped {
-  background: rgba(255, 255, 255, 0.15); /* glass effect */
-  backdrop-filter: blur(10px);
-  padding: 2rem;
-  border-radius: 12px;
-  max-width: 600px;
-  margin: 2rem auto; /* centers the form */
-  color: #000; /* ensures text is readable */
-}
-
-/* Header */
-.professional-wrapped h1,
-.professional-wrapped p {
-  margin: 0 0 20px 0;
+  padding: 40px 20px;
+  font-family: Arial, sans-serif;
+  background: radial-gradient(
+    circle at top,
+    #2b0f2f 0%,
+    #140015 40%,
+    #09000c 100%
+  );
   color: #fff;
 }
 
-/* Image Section */
+/* Main container with glass effect */
+.professional-wrapped {
+  max-width: 600px;
+  margin: 2rem auto; /* centers the form */
+  padding: 20px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  color: #fff;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+}
+
+/* Header */
+h1 {
+  text-align: center;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+p {
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+/* Top Image */
 .wrapped-image {
-  margin: 0 0 30px 0; /* spacing below image */
-  position: relative;
-  z-index: 0;
+  text-align: center;
+  margin-bottom: 2rem; /* separation from the form */
 }
 
 .wrapped-image img {
   width: 100%;
-  height: auto;
-  border-radius: 12px;
+  border-radius: 20px;
+  margin-bottom: 36px;
+  box-shadow: 0 20px 60px rgba(255, 47, 109, 0.25);
   display: block;
 }
 
-.wrapped-image {
-  margin-bottom: 2rem; /* gives separation from the form */
-}
-
-/* Form Styling - Fully Below Image */
+/* Form Styling */
 form {
   display: flex;
   flex-direction: column;
   gap: 10px;
   padding: 20px;
   border-radius: 12px;
-  background: rgba(255, 255, 255, 0.15); /* translucent overlay */
+  background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(10px);
   box-shadow: 0 8px 20px rgba(0,0,0,0.25);
-  margin-top: 30px; /* fully below the image */
   color: #fff;
 }
 
@@ -60,48 +72,61 @@ form {
 label {
   font-weight: bold;
   color: #fff;
-  text-align: left;
+  margin-bottom: 5px;
 }
 
 /* Form Inputs & Textareas */
 input[type="text"],
 input[type="email"],
 textarea {
-  background: rgba(255, 255, 255, 0.9);
-  border: 1px solid #ccc;
-  border-radius: 8px;
   padding: 10px;
   font-size: 14px;
   width: 100%;
   box-sizing: border-box;
-  color: #111;
+  border: 1px solid rgba(255,79,216,0.25);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
 }
 
-/* Textarea resizing */
+input::placeholder,
+textarea::placeholder {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: #ff4fd8;
+  box-shadow: 0 0 0 2px rgba(255, 79, 216, 0.25);
+}
+
 textarea {
-  min-height: 60px;
+  min-height: 110px;
   resize: vertical;
 }
 
 /* Buttons */
 button {
-  padding: 12px;
-  background-color: #e91e63;
-  color: white;
+  padding: 14px 28px;
+  background: linear-gradient(90deg, #ff4fd8, #ff2f6d);
   border: none;
-  border-radius: 8px;
-  font-size: 16px;
+  border-radius: 999px;
+  color: #09000c;
+  font-weight: 600;
+  font-size: 0.95rem;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 button:hover {
-  background-color: #d81b60;
+  transform: translateY(-1px);
+  box-shadow: 0 12px 32px rgba(255, 47, 109, 0.45);
 }
 
-/* Regenerate Toggle Styles */
+/* Regenerate Toggle */
 .regenerate-toggle {
-  text-align: left;
+  margin-top: 15px;
 }
 
 .regenerate-toggle label {
@@ -122,23 +147,22 @@ button:hover {
 /* Output Section */
 #outputWrap {
   margin-top: 20px;
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(10px);
   padding: 15px;
   border-radius: 12px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
   box-shadow: 0 6px 16px rgba(0,0,0,0.2);
   color: #fff;
 }
 
-/* Output Preformatted Text */
 pre#output {
   white-space: pre-wrap;
   word-wrap: break-word;
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(0, 0, 0, 0.45);
   padding: 10px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  color: #111;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #fff;
   overflow-x: auto;
 }
 
