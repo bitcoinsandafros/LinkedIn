@@ -1,57 +1,34 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>Professional Year Wrapped</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-
-<div class="container">
-
+<section class="professional-wrapped">
   <h1>Professional Year Wrapped</h1>
   <p>Create a Wrapped-style summary of your professional year.</p>
 
-  <div class="instructions">
-    <strong>This visual was generated using ChatGPT.</strong><br><br>
-    To recreate this exact style, copy the prompt below and paste it into ChatGPT.<br>
-    Then replace the company name, accomplishments, and numbers with your own.<br><br>
-    <em>No design skills needed. Just paste, edit, and generate.</em>
+  <!-- Image Section -->
+  <div class="wrapped-image">
+    <img src="assets/your-image.png" alt="Your Professional Year Visual" />
   </div>
 
-  <form id="wrappedForm">
+  <p>This visual was generated using ChatGPT.</p>
+  <p>To recreate this exact style, copy the prompt below and paste it into ChatGPT.
+  Then replace the company name, accomplishments, and numbers with your own.</p>
+  <p>No design skills needed. Just paste, edit, and generate.</p>
 
-    <label>Email (required)</label>
-    <input id="email" type="email" placeholder="you@email.com" required />
+  <!-- Form Section -->
+  <form id="year-wrapped-form">
+    <label for="email">Email (required)</label>
+    <input type="email" id="email" name="email" required />
 
-    <label>Company or Organization</label>
-    <input id="company" placeholder="Example: Comcast" required />
+    <label for="company">Company or Organization</label>
+    <input type="text" id="company" name="company" />
 
-    <label>Year Summary</label>
-    <textarea id="summary" placeholder="Short paragraph about your year"></textarea>
+    <label for="summary">Year Summary</label>
+    <textarea id="summary" name="summary"></textarea>
 
-    <label>Accomplishments (one per line)</label>
-    <textarea id="accomplishments"></textarea>
+    <label for="accomplishments">Accomplishments (one per line)</label>
+    <textarea id="accomplishments" name="accomplishments"></textarea>
 
-    <label>By the Numbers (one per line)</label>
-    <textarea id="numbers"></textarea>
+    <label for="numbers">By the Numbers (one per line)</label>
+    <textarea id="numbers" name="numbers"></textarea>
 
-    <label class="toggle">
-      <input type="checkbox" id="variation" />
-      Regenerate a slightly different layout variation
-    </label>
-
-    <button type="submit">Generate Prompt</button>
+    <button type="submit">Generate Wrapped Visual</button>
   </form>
-
-  <div id="outputWrap" hidden>
-    <button id="copyBtn">Copy Prompt</button>
-    <pre id="output"></pre>
-  </div>
-
-</div>
-
-<script src="script.js"></script>
-</body>
-</html>
+</section>
