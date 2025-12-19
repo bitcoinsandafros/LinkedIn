@@ -1,84 +1,96 @@
-* {
-  box-sizing: border-box;
-}
-
 body {
-  margin: 0;
-  padding: 40px 20px;
-  font-family: system-ui, sans-serif;
-  background: radial-gradient(circle at top, #2b0f2f 0%, #140015 40%, #09000c 100%);
-  color: #ffffff;
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  background: #f9f9f9;
+  color: #111;
 }
 
-.container {
-  max-width: 900px;
+.professional-wrapped {
+  max-width: 600px;
   margin: 0 auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 h1 {
-  font-size: 2.4rem;
-  margin-bottom: 8px;
-  background: linear-gradient(90deg, #ff4fd8, #ff2f6d);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  text-align: center;
+  margin-bottom: 10px;
 }
 
-.instructions {
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,79,216,0.25);
-  border-radius: 16px;
-  padding: 20px;
-  margin-bottom: 32px;
+p {
+  margin-bottom: 10px;
+}
+
+.wrapped-image {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.wrapped-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
 }
 
 label {
-  display: block;
-  margin-bottom: 6px;
-  font-size: 0.9rem;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  font-weight: bold;
 }
 
-input, textarea {
+input[type="text"],
+input[type="email"],
+textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
   width: 100%;
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,79,216,0.25);
-  border-radius: 12px;
-  padding: 14px;
-  margin-bottom: 20px;
-  color: #fff;
+  box-sizing: border-box;
 }
 
 textarea {
-  min-height: 110px;
-}
-
-.toggle {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 24px;
+  min-height: 60px;
+  resize: vertical;
 }
 
 button {
-  background: linear-gradient(90deg, #ff4fd8, #ff2f6d);
+  margin-top: 15px;
+  padding: 12px;
+  background-color: #4caf50;
+  color: white;
   border: none;
-  border-radius: 999px;
-  padding: 14px 28px;
-  font-weight: 600;
+  border-radius: 8px;
+  font-size: 16px;
   cursor: pointer;
 }
 
-#outputWrap {
-  margin-top: 40px;
+button:hover {
+  background-color: #45a049;
 }
 
-#copyBtn {
-  margin-bottom: 12px;
+/* Regenerate Toggle Styles */
+.regenerate-toggle {
+  margin-top: 15px;
 }
 
-pre {
-  padding: 24px;
-  background: rgba(0,0,0,0.45);
-  border-radius: 18px;
-  white-space: pre-wrap;
-  border: 1px solid rgba(255,255,255,0.08);
+.regenerate-toggle label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.regenerate-toggle input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  margin: 0;
 }
